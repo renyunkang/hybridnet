@@ -80,8 +80,8 @@ RUN cd /go/src/github.com/projectcalico/typha && \
 FROM alpine:3.14
 
 # replace apk source url
-RUN sed -i s@/dl-cdn.alpinelinux.org/@/mirrors.aliyun.com/@g /etc/apk/repositories && \
-	chmod +x /bin/*
+# RUN sed -i s@/dl-cdn.alpinelinux.org/@/mirrors.aliyun.com/@g /etc/apk/repositories && \
+# 	chmod +x /bin/*
 
 RUN apk update
 

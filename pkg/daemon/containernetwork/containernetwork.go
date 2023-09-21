@@ -196,9 +196,9 @@ func ConfigureContainerNic(containerNicName, hostNicName, nodeIfName string, all
 			return fmt.Errorf("failed to enable ipv4 forwarding: %v", err)
 		}
 
-		if err := daemonutils.EnsureNeighGCThresh(netlink.FAMILY_V4, neighGCThresh1, neighGCThresh2, neighGCThresh3); err != nil {
-			return fmt.Errorf("failed to ensure ipv4 neigh gc thresh: %v", err)
-		}
+		// if err := daemonutils.EnsureNeighGCThresh(netlink.FAMILY_V4, neighGCThresh1, neighGCThresh2, neighGCThresh3); err != nil {
+		// 	return fmt.Errorf("failed to ensure ipv4 neigh gc thresh: %v", err)
+		// }
 
 		if err := daemonutils.EnsureRpFilter(hostNicName); err != nil {
 			return fmt.Errorf("failed to ensure rp_filter sysctl config: %v", err)
@@ -252,9 +252,9 @@ func ConfigureContainerNic(containerNicName, hostNicName, nodeIfName string, all
 			return fmt.Errorf("failed to enable ipv6 forwarding: %v", err)
 		}
 
-		if err := daemonutils.EnsureNeighGCThresh(netlink.FAMILY_V6, neighGCThresh1, neighGCThresh2, neighGCThresh3); err != nil {
-			return fmt.Errorf("failed to ensure ipv6 neigh gc thresh: %v", err)
-		}
+		// if err := daemonutils.EnsureNeighGCThresh(netlink.FAMILY_V6, neighGCThresh1, neighGCThresh2, neighGCThresh3); err != nil {
+		// 	return fmt.Errorf("failed to ensure ipv6 neigh gc thresh: %v", err)
+		// }
 
 		if err := daemonutils.EnsureIPv6RouteGCParameters(ipv6RouteCacheMaxSize, ipv6RouteCacheGCThresh); err != nil {
 			return fmt.Errorf("failed to set ipv6 route cache gc parameters: %v", err)
